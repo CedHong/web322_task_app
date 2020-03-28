@@ -1,20 +1,20 @@
  <h2>Update Task</h2>
-    <form method="POST" action="">
+    <form method="POST" action="/task/update/{{_id}}?method=PUT">
 
         <label>Title</label>
-        <input type="text" name="title" id="title" > <br><br>
+        <input type="text" name="title" id="title" value="{{title}}" > <br><br>
 
         <label>Description</label>
-        <textarea id="description" name="description"></textarea><br><br>
+        <textarea id="description" name="description">{{description}}</textarea><br><br>
 
         <label>Due Date</label>
-        <input type="date" name="dueDate" id="dueDate"> <br><br>
+        <input type="date" name="dueDate" id="dueDate" value="{{format_date}}"> <br><br>
 
         <label>Priority</label>
         <select name="priority">
-            <option value="low" >Low</option>
-            <option value="medium" >Medium</option>
-            <option value="high" >High</option>
+            <option value="low" {{#equal priority "low" "selected"}}  {{/equal}}>Low</option>
+            <option value="medium" {{#equal priority "medium" "selected"}}  {{/equal}}>Medium</option>
+            <option value="high"{{#equal priority "high" "selected"}}  {{/equal}}>High</option>
         </select>
         <br><br>
 
